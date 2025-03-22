@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.dashboard-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif; /* Futuristic font */
+}
+
+/* Background Video */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+/* Logout Button */
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(15, 10, 10, 0);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.logout-btn:hover {
+  background-color: rgb(11, 57, 94);
+  box-shadow: 0 0 10px black;
+}
+
+/* Overlay Content */
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+/* Welcome Text */
+.welcome-text {
+  font-size: 26px;
+  text-shadow: 2px 2px 10px rgba(0, 255, 255, 0.8);
+  animation: flicker 1.5s infinite alternate;
+}
+
+/* Welcome Text Flickering Effect */
+@keyframes flicker {
+  0% { opacity: 1; text-shadow: 0 0 10px cyan, 0 0 20px cyan; }
+  100% { opacity: 0.8; text-shadow: 0 0 15px cyan, 0 0 30px cyan; }
+}
+
+/* Activate Jarvis Button */
+.activate-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  background: radial-gradient(circle, #00ffcc, #003366);
+  color: white;
+  border: 2px solid cyan;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px cyan;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Button Hover Effect */
+.activate-btn:hover {
+  background: radial-gradient(circle, #003366, #00ffcc);
+  box-shadow: 0 0 25px cyan, 0 0 50px cyan;
+}
+
+/* Button Animation (Pulsing) */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 15px cyan; }
+  50% { transform: scale(1.1); box-shadow: 0 0 25px cyan, 0 0 50px cyan; }
+  100% { transform: scale(1); box-shadow: 0 0 15px cyan; }
+}
+
+.activate-btn {
+  animation: pulse 1.5s infinite;
+}
+
+/* AI Circuit Animation on Button */
+.activate-btn::before {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  background: rgba(0, 255, 255, 0.3);
+  top: -20%;
+  left: -20%;
+  transform: rotate(45deg);
+  animation: circuit-move 3s infinite linear;
+}
+
+@keyframes circuit-move {
+  0% { top: -20%; left: -20%; }
+  50% { top: 20%; left: 20%; }
+  100% { top: -20%; left: -20%; }
+}
+
+.activate-btn.listening {
+  background: radial-gradient(circle, #ff0000, #660000);
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(1); box-shadow: 0 0 15px #ff0000; }
+  50% { transform: scale(1.1); box-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000; }
+  100% { transform: scale(1); box-shadow: 0 0 15px #ff0000; }
+}
+
+.activate-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
